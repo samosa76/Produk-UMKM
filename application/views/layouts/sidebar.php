@@ -57,6 +57,12 @@
             <p>Jenis Produk</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url("index.php/login/logout")?>" class="nav-link">
+            <i class="nav-icon fas fa-table"></i>
+            <p>Logout</p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -18,6 +18,7 @@ class Login extends CI_Controller {
             $this->session->set_userdata('USERNAME',$row->username);
             $this->session->set_userdata('ROLE',$row->role);
             $this->session->set_userdata('USER',$row);
+            $this->session->set_userdata('logged_in',$row);
             
             redirect(base_url().'index.php/produk');
         }else{// jika user tidak (username password salah)
@@ -30,6 +31,7 @@ class Login extends CI_Controller {
         $this->session->unset_userdata('USERNAME');
         $this->session->unset_userdata('ROLE');
         $this->session->unset_userdata('USER');
+        $this->session->unset_userdata('logged_in');
         redirect(base_url().'index.php/login'); 
     }
 
