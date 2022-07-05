@@ -32,6 +32,7 @@ class Beli extends CI_Controller{
         $this->load->view('layouts/sidebar');
         $this->load->view('layouts/footer');
     }
+    
     public function save(){
         // akses ke model beli
         $this->load->model('beli_model', 'beli'); 
@@ -77,7 +78,7 @@ class Beli extends CI_Controller{
     public function __construct(){
         parent:: __construct();
         if(!$this->session->userdata('logged_in')){
-            //redirect('/login');
+            redirect('/login');
         }
     }
 
@@ -110,6 +111,42 @@ class Beli extends CI_Controller{
         $this->load->view('beli/detail', $data);
         $this->load->view('layouts/sidebar');
         $this->load->view('layouts/footer');
+    }
+
+    // start from this message are function for public
+
+    public function public_beli(){
+        // $this->load->view('layouts/header');
+        $this->load->view('beli/public_beli');
+        // $this->load->view('layouts/sidebar');
+        // $this->load->view('layouts/footer');
+    }
+    
+    public function beliProduk(){
+        // $this->load->view('layouts/header');
+        $this->load->model('beli_model','beli');
+        $_tanggal = $this->input->post('tanggal');
+        $_jumlah = $this->input->post('jumlah');
+        $_users_id = $this->input->post('users_id');
+        $_produk_id = $this->input->post('produk_id');
+        $_idedit = $this->input->post('idedit');
+
+        $data_beli['tanggal'] = $_tanggal; // ? 1
+        $data_beli['jumlah'] = $_jumlah;// ? 2
+        $data_beli['users_id'] = $_users_id;// ? 3
+        $data_beli['produk_id'] = $_produk_id; // ? 
+        // $this->load->view('layouts/sidebar');
+        // $this->load->view('layouts/footer');
+        $this->beli->simpan($data_beli);
+        $this->load->view('beli/berhasil_beli');
+    }
+
+    public function logout(){
+        $this->session->unset_userdata('USERNAME');
+        $this->session->unset_userdata('ROLE');
+        $this->session->unset_userdata('USER');
+        $this->session->unset_userdata('logged_in');
+        redirect(base_url().'index.php/'); 
     }
 }
 ?>

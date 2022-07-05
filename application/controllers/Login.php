@@ -14,16 +14,26 @@ class Login extends CI_Controller {
         $_password = $this->input->post('password');
 
         $row = $this->user->login($_username,$_password);
+
         if(isset($row)){// jika user terdaftar di database
             $this->session->set_userdata('USERNAME',$row->username);
             $this->session->set_userdata('ROLE',$row->role);
             $this->session->set_userdata('USER',$row);
             $this->session->set_userdata('logged_in',$row);
+
+            switch ($this->session->userdata('ROLE')) {
+                case "administrator" :
+                    redirect(base_url().'index.php/produk');
+                    break;
+                case  "public":
+                    redirect(base_url().'index.php/');
+                    break;
+            }
             
-            redirect(base_url().'index.php/produk');
         }else{// jika user tidak (username password salah)
             redirect(base_url().'index.php/login?status=f'); 
         }
+        echo "Sedang munggu verfikasi";
 
     }
 
