@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="<?php echo base_url('plugins/icheck-bootstrap/icheck-bootstrap.min.css')?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url('dist/css/adminlte.min.css')?>">
+  
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">

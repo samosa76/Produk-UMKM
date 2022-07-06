@@ -18,6 +18,7 @@ class Login extends CI_Controller {
         if(isset($row)){// jika user terdaftar di database
             $this->session->set_userdata('USERNAME',$row->username);
             $this->session->set_userdata('ROLE',$row->role);
+            $this->session->set_userdata('ID',$row->id);
             $this->session->set_userdata('USER',$row);
             $this->session->set_userdata('logged_in',$row);
 
