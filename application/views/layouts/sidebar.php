@@ -33,6 +33,12 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item">
+            <a href="<?php echo base_url("index.php/user")?>" class="nav-link">
+            <i class="nav-icon fas fa-table"></i>
+            <p>User</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="<?php echo base_url("index.php/produk")?>" class="nav-link">
             <i class="nav-icon fas fa-table"></i>

@@ -30,6 +30,17 @@
         $insert_id = $this->db->insert_id();
         return $this->findById($insert_id);
     }
+    
+    public function update($data){
+        $sql = "UPDATE users SET role=?  WHERE id=?";
+        $this->db->query($sql,$data);
+    }
+
+    public function delete($data){
+        // hapus data jenis_produk
+        $sql = "DELETE FROM users WHERE id=?";
+        $this->db->query($sql, $data); 
+    }
 
 }
 ?>
