@@ -18,7 +18,7 @@ class Blog extends CI_Controller{
 
     public function add(){
         if(!$this->session->userdata('logged_in')){
-            redirect('index.php/login');
+            redirect('/login');
         } else{
             $this->load->model('beli_model','beli');
             $_qty = $this->input->post('qty');
